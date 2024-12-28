@@ -26,7 +26,7 @@ export function Player({ start, now }: PlayerProps) {
     if (latestNotification === nowSeconds) {
       return;
     }
-    if ([180, 179, 178, 120, 119, 60, 0].includes(secondsToNextLapStart)) {
+    if ([180, 179, 178, 120, 119, 60, 3600].includes(secondsToNextLapStart)) {
       const audio = audioRef.current;
       if (audio) {
         audio.currentTime = 0;

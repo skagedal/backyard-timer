@@ -28,11 +28,6 @@ export default function Home() {
             <Settings />
             <span className="hidden">Configure race</span>
           </Button>
-          {/* 
-          <Configuration
-            startDateTime={startDateTime}
-            setStartDateTime={setStartDateTime}
-          /> */}
           <RaceTimer startDateTime={startDateTime} />
         </>
       ) : (

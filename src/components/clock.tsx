@@ -7,6 +7,17 @@ export interface ClockProps {
   startDateTime: DateTime | undefined;
 }
 
+function ClockLayout({ a, b }: { a: React.ReactNode; b: React.ReactNode }) {
+  return (
+    <div className="flex flex-col items-center">
+      <div className="text-[20vh] leading-[20vh] uppercase text-sky-400">
+        {a}
+      </div>
+      <div className="text-[40vh] leading-[40vh] tabular-nums">{b}</div>
+    </div>
+  );
+}
+
 function CountDown({
   start,
   now,
@@ -18,12 +29,7 @@ function CountDown({
     .until(start.plus({ second: 1 }))
     .toDuration()
     .toFormat("hh:mm:ss");
-  return (
-    <div className="flex flex-col items-center">
-      <div className="text-[5vw] uppercase text-sky-400">Countdown</div>
-      <div className="text-[20vw] tabular-nums">{formatted}</div>
-    </div>
-  );
+  return <ClockLayout a="Countdown" b={formatted} />;
 }
 
 function LapTimer({
@@ -39,12 +45,7 @@ function LapTimer({
     .toDuration(["hours", "minutes", "seconds"])
     .set({ hours: 0 })
     .toFormat("mm:ss");
-  return (
-    <div className="flex flex-col items-center">
-      <div className="text-[5vw] uppercase text-sky-400">Lap {lap}</div>
-      <div className="text-[20vw] tabular-nums">{lapClock}</div>
-    </div>
-  );
+  return <ClockLayout a={`Lap ${lap}`} b={lapClock} />;
 }
 
 function Clock({ start }: { start: DateTime<true> }) {

@@ -10,10 +10,18 @@ export interface ClockProps {
 function ClockLayout({ a, b }: { a: React.ReactNode; b: React.ReactNode }) {
   return (
     <div className="flex flex-col items-center">
-      <div className="text-[20vmin] leading-[20vmin] uppercase text-sky-400">
+      <div
+        className="uppercase text-sky-400"
+        style={{ fontSize: "min(20vh, 10vw)", lineHeight: "1" }}
+      >
         {a}
       </div>
-      <div className="text-[35vmin] leading-[35vmin] tabular-nums">{b}</div>
+      <div
+        className="tabular-nums"
+        style={{ fontSize: "min(35vh, 20vw)", lineHeight: "1" }}
+      >
+        {b}
+      </div>
     </div>
   );
 }
@@ -43,8 +51,7 @@ function LapTimer({
   const lapClock = start
     .until(now)
     .toDuration(["hours", "minutes", "seconds"])
-    .set({ hours: 0 })
-    .toFormat("mm:ss");
+    .toFormat("hh:mm:ss");
   return <ClockLayout a={`Lap ${lap}`} b={lapClock} />;
 }
 

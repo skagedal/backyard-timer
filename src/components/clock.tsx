@@ -10,10 +10,10 @@ export interface ClockProps {
 function ClockLayout({ a, b }: { a: React.ReactNode; b: React.ReactNode }) {
   return (
     <div className="flex flex-col items-center">
-      <div className="text-[20vh] leading-[20vh] uppercase text-sky-400">
+      <div className="text-[20vmin] leading-[20vmin] uppercase text-sky-400">
         {a}
       </div>
-      <div className="text-[40vh] leading-[40vh] tabular-nums">{b}</div>
+      <div className="text-[35vmin] leading-[35vmin] tabular-nums">{b}</div>
     </div>
   );
 }

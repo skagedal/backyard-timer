@@ -1,7 +1,6 @@
-import { useInterval } from "@/lib/interval-hook";
 import { DateTime } from "luxon";
-import { useState } from "react";
 import { Player } from "./player";
+import { useEverySecond } from "@/lib/every-second-hook";
 
 export interface ClockProps {
   startDateTime: DateTime | undefined;
@@ -56,10 +55,7 @@ function LapTimer({
 }
 
 function Clock({ start }: { start: DateTime<true> }) {
-  const [now, setNow] = useState(DateTime.now());
-  useInterval(() => {
-    setNow(DateTime.now());
-  }, 1000);
+  const now = useEverySecond();
 
   return (
     <>
